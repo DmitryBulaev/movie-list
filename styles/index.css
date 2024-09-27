@@ -1,0 +1,48 @@
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  background: #181818;
+}
+
+.header-section {
+  margin: auto;
+  padding: 70px 0 40px 90px;
+  width: 950px;
+}
+
+.list-section {
+  margin: auto;
+  width: 950px;
+  background: #232323;
+  border-radius: 20px;
+}
+
+.header-section__logo {
+  width: 292px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-section__logo-text,
+.header-section__logo-year {
+  padding: 12px 25px;
+  font-size: 20px;
+  font-weight: 350;
+  background: #dc5019;
+  color: #f3f6f9;
+  border-radius: 30px;
+}
+
+.header-section__title {
+  font-size: 120px;
+  color: #f3f6f9;
+}
+
+.list-section__input {
+  background: #232323;
+  width: 415px;
+  outline: none;
+  border: none;
+  color: #f3f6f9;
+  cursor: pointer;
+}
