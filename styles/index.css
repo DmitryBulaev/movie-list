@@ -29,7 +29,7 @@ body {
   padding: 12px 25px;
   font-size: 20px;
   font-weight: 350;
-  background: #dc5019;
+  background: #ab4d27;
   color: #f3f6f9;
   border-radius: 30px;
 }
@@ -59,7 +59,7 @@ body {
 .list-section__add-movie-button {
   width: 62px;
   height: 62px;
-  background: #dc5019;
+  background: #ab4d27;
   background-image: url("resources/addArrow.png");
   background-repeat: no-repeat;
   background-position: left 10px top 15px;
