@@ -11,7 +11,7 @@ body {
 
 .list-section {
   margin: auto;
-  padding: 50px 70px 80px 70px;
+  padding: 80px 70px 80px 70px;
   width: 950px;
   background: #232323;
   border-radius: 20px;
@@ -40,6 +40,7 @@ body {
 }
 
 .input-wrapper {
+  margin-bottom: 40px;
   display: flex;
   flex-direction: row;
   gap: 15px;
@@ -66,8 +67,19 @@ body {
   background-size: 40px;
   border: none;
   border-radius: 30px;
+  cursor: pointer;
 }
 
 .list-section__add-movie-button:hover {
   opacity: 0.6;
+}
+
+.movie-item {
+  margin-bottom: 3px;
+  padding: 0 30px 0 30px;
+  font-size: 20px;
+  line-height: 70px;
+  color: #f3f6f9;
+  background: #3a3939;
+  border-radius: 10px;
 }
