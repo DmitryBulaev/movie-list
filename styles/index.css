@@ -23,8 +23,8 @@ body {
   align-items: center;
 }
 
-.header-section__logo-text,
-.header-section__logo-year {
+.logo-text,
+.logo-year {
   padding: 12px 25px;
   font-size: 20px;
   font-weight: 350;
