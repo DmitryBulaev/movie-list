@@ -5,12 +5,13 @@ body {
 
 .header-section {
   margin: auto;
-  padding: 70px 0 40px 90px;
+  padding: 70px 0 40px 70px;
   width: 950px;
 }
 
 .list-section {
   margin: auto;
+  padding: 50px 70px 80px 70px;
   width: 950px;
   background: #232323;
   border-radius: 20px;
@@ -38,6 +39,12 @@ body {
   color: #f3f6f9;
 }
 
+.input-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
 .list-section__input {
   background: #232323;
   width: 415px;
@@ -45,4 +52,22 @@ body {
   border: none;
   color: #f3f6f9;
   cursor: pointer;
+  font-size: 30px;
+  box-shadow: 0 1px #676a6c;
+}
+
+.list-section__add-movie-button {
+  width: 62px;
+  height: 62px;
+  background: #dc5019;
+  background-image: url("resources/addArrow.png");
+  background-repeat: no-repeat;
+  background-position: left 10px top 15px;
+  background-size: 40px;
+  border: none;
+  border-radius: 30px;
+}
+
+.list-section__add-movie-button:hover {
+  opacity: 0.6;
 }
