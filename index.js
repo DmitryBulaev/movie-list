@@ -13,7 +13,10 @@ addButtonNode.addEventListener("click", function () {
 
   movies.forEach((movie) => {
     const moviesItem = document.createElement("li");
+    moviesItem.className = "movie-item";
     moviesItem.innerText = movie;
     moviesListNode.appendChild(moviesItem);
   });
+
+  inputNode.value = "";
 });
