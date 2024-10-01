@@ -75,6 +75,7 @@ body {
 }
 
 .movie-item {
+  position: relative;
   margin-bottom: 3px;
   padding: 0 30px 0 30px;
   font-size: 20px;
@@ -82,4 +83,24 @@ body {
   color: #f3f6f9;
   background: #3a3939;
   border-radius: 10px;
+}
+
+.tagMovie {
+  margin-right: 20px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50px;
+  border: 1px solid #7e7e7e;
+  background: #3a3939;
+}
+
+.resetMovie {
+  position: absolute;
+  top: 23px;
+  right: 15px;
+  width: 23px;
+  height: 23px;
+  border: none;
+  background: #3a3939;
+  background-image: url("resources/resetButton.png");
 }

@@ -20,8 +20,8 @@ const renderMoviesList = () => {
   movies.forEach((movie) => {
     const moviesItem = document.createElement("li");
     moviesItem.className = "movie-item";
-    moviesItem.innerText = movie;
-    moviesListNode.appendChild(moviesItem);
+    moviesItem.innerHTML = `<button class='tagMovie'></button>${movie}<button class='resetMovie'></button>`;
+    moviesListNode.append(moviesItem);
   });
 };
 
@@ -35,7 +35,6 @@ const addButtonHandler = () => {
   renderMoviesList();
 
   clearInput(inputNode);
-  console.log(1);
 };
 
 addButtonNode.addEventListener("click", addButtonHandler);
