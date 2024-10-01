@@ -4,11 +4,12 @@ const inputNode = document.getElementById("movieInput");
 const addButtonNode = document.getElementById("addMovieButton");
 const moviesListNode = document.getElementById("moviesList");
 
-addButtonNode.addEventListener("click", function () {
+const getMovieFromUser = () => {
   const movie = inputNode.value;
-
   movies.push(movie);
+};
 
+const renderMoviesList = () => {
   moviesListNode.innerHTML = "";
 
   movies.forEach((movie) => {
@@ -17,6 +18,18 @@ addButtonNode.addEventListener("click", function () {
     moviesItem.innerText = movie;
     moviesListNode.appendChild(moviesItem);
   });
+};
 
-  inputNode.value = "";
-});
+const clearInput = (input) => {
+  input.value = "";
+};
+
+const addButtonHandler = () => {
+  getMovieFromUser();
+
+  renderMoviesList();
+
+  clearInput(inputNode);
+};
+
+addButtonNode.addEventListener("click", addButtonHandler);
