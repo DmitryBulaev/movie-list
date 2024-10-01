@@ -6,6 +6,11 @@ const moviesListNode = document.getElementById("moviesList");
 
 const getMovieFromUser = () => {
   const movie = inputNode.value;
+
+  if (!inputNode.value) {
+    return;
+  }
+
   movies.push(movie);
 };
 
@@ -30,6 +35,7 @@ const addButtonHandler = () => {
   renderMoviesList();
 
   clearInput(inputNode);
+  console.log(1);
 };
 
 addButtonNode.addEventListener("click", addButtonHandler);
