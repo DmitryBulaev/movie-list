@@ -91,6 +91,7 @@ body {
   height: 19px;
   border-radius: 50px;
   border: 1px solid #7e7e7e;
+  cursor: pointer;
 }
 
 .disable {
@@ -131,4 +132,9 @@ body {
   border: none;
   background: #3a3939;
   background-image: url("resources/resetButton.png");
+  cursor: pointer;
+}
+
+.reset-movie:hover {
+  opacity: 0.5;
 }
