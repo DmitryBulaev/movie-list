@@ -85,16 +85,44 @@ body {
   border-radius: 10px;
 }
 
-.tagMovie {
+.tag-movie {
   margin-right: 20px;
   width: 19px;
   height: 19px;
   border-radius: 50px;
   border: 1px solid #7e7e7e;
+}
+
+.disable {
   background: #3a3939;
 }
 
-.resetMovie {
+.enable {
+  background: #ab4d27;
+}
+
+.movie-text {
+  line-height: 20px;
+  display: inline-block;
+}
+
+.crossed-out-off {
+  text-decoration: none;
+}
+
+.crossed-out-on {
+  text-decoration: line-through;
+}
+
+.lable-on {
+  opacity: 0.4;
+}
+
+.lable-off {
+  opacity: none;
+}
+
+.reset-movie {
   position: absolute;
   top: 23px;
   right: 15px;
