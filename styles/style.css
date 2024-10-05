@@ -61,7 +61,7 @@ body {
   width: 62px;
   height: 62px;
   background: #ab4d27;
-  background-image: url("resources/addArrow.png");
+  background-image: url("../resources/addArrow.png");
   background-repeat: no-repeat;
   background-position: left 10px top 15px;
   background-size: 40px;
@@ -131,7 +131,7 @@ body {
   height: 23px;
   border: none;
   background: #3a3939;
-  background-image: url("resources/resetButton.png");
+  background-image: url("../resources/resetButton.png");
   cursor: pointer;
 }
 
