@@ -107,20 +107,12 @@ body {
   display: inline-block;
 }
 
-.crossed-out-off {
-  text-decoration: none;
-}
-
 .crossed-out-on {
   text-decoration: line-through;
 }
 
 .lable-on {
   opacity: 0.4;
-}
-
-.lable-off {
-  opacity: none;
 }
 
 .reset-movie {
