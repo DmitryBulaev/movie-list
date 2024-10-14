@@ -27,6 +27,12 @@ const renderMoviesList = () => {
                             <button data-class="resetMovie" class="reset-movie"></button>
                             `;
     movieListNode.append(movieItem);
+
+    const tagMovieBtn = movieItem.querySelector("[data-class=tagMovie]");
+    const resetMovieBtn = movieItem.querySelector("[data-class=resetMovie]");
+
+    tagMovieBtn.addEventListener("click", tagMovie);
+    resetMovieBtn.addEventListener("click", resetMovie);
   });
 };
 
@@ -48,39 +54,35 @@ const addMovieHandler = (event) => {
 
 formNode.addEventListener("submit", addMovieHandler);
 
-const toggleTagMovieButton = (movieItem) => {
+function toggleTagMovieButton(movieItem) {
   const tagButton = movieItem.querySelector("[data-class=tagMovie]");
   tagButton.classList.toggle("enable");
-};
+}
 
-const toggleLableMovie = (movieItem) => {
+function toggleLableMovie(movieItem) {
   const movieTextNode = movieItem.querySelector("[data-class=movie]");
   movieTextNode.classList.toggle("crossed-out-on");
-};
+}
 
-const toggleMovieItem = (movieItem) => {
+function toggleMovieItem(movieItem) {
   movieItem.classList.toggle("lable-on");
-};
+}
 
-const tagMovie = (event) => {
+function tagMovie(event) {
   const movieItem = event.target.closest("[data-class=movieItem]");
   if (event.target.dataset.class === "tagMovie") {
     toggleTagMovieButton(movieItem);
     toggleLableMovie(movieItem);
     toggleMovieItem(movieItem);
-    console.log(movieItem);
   }
-};
+}
 
-const resetMovie = (event) => {
+function resetMovie(event) {
   const movieItem = event.target.closest("[data-class=movieItem]");
-  let index = movies.indexOf(movieItem);
+  // let index = movies.indexOf(movieItem);
 
   if (event.target.dataset.class === "resetMovie") {
     movieItem.remove();
     console.log(movies);
   }
-};
-
-movieListNode.addEventListener("click", tagMovie);
-movieListNode.addEventListener("click", resetMovie);
+}
