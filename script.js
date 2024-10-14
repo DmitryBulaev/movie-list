@@ -1,9 +1,9 @@
-let movies = [];
-
 const inputNode = document.getElementById("movieInput");
 const addButtonNode = document.getElementById("addMovieButton");
 const movieListNode = document.getElementById("moviesList");
 const formNode = document.querySelector("#form");
+
+let movies = [];
 
 const getMovieFromUser = () => {
   const movie = inputNode.value;
@@ -12,21 +12,31 @@ const getMovieFromUser = () => {
     return;
   }
 
-  movies.push(movie);
+  return movie;
 };
 
 const renderMoviesList = () => {
+  const movie = getMovieFromUser();
+
+  const newMovie = {
+    id: Date.now(),
+    item: movie,
+    lable: false,
+  };
+
+  movies.push(newMovie);
   movieListNode.innerHTML = "";
 
-  movies.forEach((movie) => {
+  movies.forEach((newMovie) => {
     const movieItem = document.createElement("li");
+    movieItem.id = newMovie.id;
     movieItem.dataset.class = "movieItem";
     movieItem.className = "movie-item";
     movieItem.innerHTML = `<button data-class="tagMovie" class="tag-movie"></button>
-                            <span data-class="movie" class="movie-text">${movie}</span>
+                            <span data-class="movie" class="movie-text">${newMovie.item}</span>
                             <button data-class="resetMovie" class="reset-movie"></button>
-                            `;
-    movieListNode.append(movieItem);
+                          `;
+    movieListNode.insertAdjacentElement("beforeend", movieItem);
 
     const tagMovieBtn = movieItem.querySelector("[data-class=tagMovie]");
     const resetMovieBtn = movieItem.querySelector("[data-class=resetMovie]");
@@ -34,6 +44,8 @@ const renderMoviesList = () => {
     tagMovieBtn.addEventListener("click", tagMovie);
     resetMovieBtn.addEventListener("click", resetMovie);
   });
+
+  // const lableMovie = newMovie.lable ? tagMovie :
 };
 
 const clearInput = (input) => {
@@ -49,7 +61,6 @@ const addMovieHandler = (event) => {
   renderMoviesList();
 
   clearInput(inputNode);
-  console.log(movies);
 };
 
 formNode.addEventListener("submit", addMovieHandler);
