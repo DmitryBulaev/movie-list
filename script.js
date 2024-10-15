@@ -87,19 +87,17 @@ function toggleLableMovieItem(movieItem) {
 
 function tagMovie(event) {
   const movieItem = event.target.closest("[data-class=movieItem]");
-  if (event.target.dataset.class === "tagMovie") {
-    toggleTagMovieButton(movieItem);
-    toggleTextMarkMovie(movieItem);
-    toggleLableMovieItem(movieItem);
-  }
+
+  if (event.target.dataset.class !== "tagMovie") return;
+  toggleTagMovieButton(movieItem);
+  toggleTextMarkMovie(movieItem);
+  toggleLableMovieItem(movieItem);
 }
 
 function resetMovie(event) {
   const movieItem = event.target.closest("[data-class=movieItem]");
-  // let index = movies.indexOf(movieItem);
 
-  if (event.target.dataset.class === "resetMovie") {
-    movieItem.remove();
-    console.log(movies);
-  }
+  if (event.target.dataset.class !== "resetMovie") return;
+  movieItem.remove();
+  console.log(movies);
 }
