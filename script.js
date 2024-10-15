@@ -89,6 +89,16 @@ function tagMovie(event) {
   const movieItem = event.target.closest("[data-class=movieItem]");
 
   if (event.target.dataset.class !== "tagMovie") return;
+
+  const movieItemId = Number(movieItem.id);
+  const newMovie = movies.find((movie) => movie.id === movieItemId);
+
+  newMovie.btnTag = !newMovie.btnTag;
+  newMovie.textMark = !newMovie.textMark;
+  newMovie.lable = !newMovie.lable;
+
+  console.log(newMovie);
+
   toggleTagMovieButton(movieItem);
   toggleTextMarkMovie(movieItem);
   toggleLableMovieItem(movieItem);
@@ -102,6 +112,6 @@ function resetMovie(event) {
   const movieItemId = Number(movieItem.id);
 
   movies = movies.filter((movie) => movie.id !== movieItemId);
-  console.log(movies);
+
   movieItem.remove();
 }
