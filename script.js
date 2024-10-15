@@ -21,8 +21,14 @@ const renderMoviesList = () => {
   const newMovie = {
     id: Date.now(),
     item: movie,
+    btnTag: false,
+    textMark: false,
     lable: false,
   };
+
+  const btnCssClass = newMovie.btnTag ? "tag-movie enable" : "tag-movie";
+  const textCssClass = newMovie.textMark ? "movie-text crossed-out-on" : "movie-text";
+  const liCssClass = newMovie.lable ? "movie-item lable-on" : "movie-item";
 
   movies.push(newMovie);
   movieListNode.innerHTML = "";
@@ -31,9 +37,9 @@ const renderMoviesList = () => {
     const movieItem = document.createElement("li");
     movieItem.id = newMovie.id;
     movieItem.dataset.class = "movieItem";
-    movieItem.className = "movie-item";
-    movieItem.innerHTML = `<button data-class="tagMovie" class="tag-movie"></button>
-                            <span data-class="movie" class="movie-text">${newMovie.item}</span>
+    movieItem.className = `${liCssClass}`;
+    movieItem.innerHTML = `<button data-class="tagMovie" class="${btnCssClass}"></button>
+                            <span data-class="movie" class="${textCssClass}">${newMovie.item}</span>
                             <button data-class="resetMovie" class="reset-movie"></button>
                           `;
     movieListNode.insertAdjacentElement("beforeend", movieItem);
@@ -70,12 +76,12 @@ function toggleTagMovieButton(movieItem) {
   tagButton.classList.toggle("enable");
 }
 
-function toggleLableMovie(movieItem) {
+function toggleTextMarkMovie(movieItem) {
   const movieTextNode = movieItem.querySelector("[data-class=movie]");
   movieTextNode.classList.toggle("crossed-out-on");
 }
 
-function toggleMovieItem(movieItem) {
+function toggleLableMovieItem(movieItem) {
   movieItem.classList.toggle("lable-on");
 }
 
@@ -83,8 +89,8 @@ function tagMovie(event) {
   const movieItem = event.target.closest("[data-class=movieItem]");
   if (event.target.dataset.class === "tagMovie") {
     toggleTagMovieButton(movieItem);
-    toggleLableMovie(movieItem);
-    toggleMovieItem(movieItem);
+    toggleTextMarkMovie(movieItem);
+    toggleLableMovieItem(movieItem);
   }
 }
 
