@@ -98,6 +98,10 @@ function resetMovie(event) {
   const movieItem = event.target.closest("[data-class=movieItem]");
 
   if (event.target.dataset.class !== "resetMovie") return;
-  movieItem.remove();
+
+  const movieItemId = Number(movieItem.id);
+
+  movies = movies.filter((movie) => movie.id !== movieItemId);
   console.log(movies);
+  movieItem.remove();
 }
