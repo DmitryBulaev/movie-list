@@ -77,9 +77,11 @@ const addMovieHandler = (event) => {
 
   movies.push(newMovie);
 
-  saveToLocalStorage();
+  movieListNode.innerHTML = "";
 
   renderMovieList(newMovie);
+
+  saveToLocalStorage();
 
   clearInput(inputNode);
 };
