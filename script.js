@@ -104,12 +104,9 @@ function toggleLableMovieItem(movieItem) {
 
 function tagMovie(event) {
   const movieItem = event.target.closest("[data-class=movieItem]");
-
   if (event.target.dataset.class !== "tagMovie") return;
-
   const movieItemId = Number(movieItem.id);
   const newMovie = movies.find((movie) => movie.id === movieItemId);
-
   newMovie.btnTag = !newMovie.btnTag;
   newMovie.textMark = !newMovie.textMark;
   newMovie.lable = !newMovie.lable;
@@ -125,11 +122,8 @@ function resetMovie(event) {
   const movieItem = event.target.closest("[data-class=movieItem]");
 
   if (event.target.dataset.class !== "resetMovie") return;
-
   const movieItemId = Number(movieItem.id);
-
   movies = movies.filter((movie) => movie.id !== movieItemId);
-
   movieItem.remove();
 
   saveToLocalStorage();
