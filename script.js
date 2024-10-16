@@ -7,8 +7,6 @@ const formNode = document.querySelector("#form");
 
 let movies = [];
 
-initMovieList();
-
 function initMovieList() {
   const moviesFromStarageString = localStorage.getItem(STORAGE_LABEL_MOVIES);
   const moviesFromStarage = JSON.parse(moviesFromStarageString);
@@ -17,6 +15,8 @@ function initMovieList() {
   }
   renderMovieList();
 }
+
+initMovieList();
 
 function getMovieFromUser() {
   const movie = inputNode.value;
@@ -28,29 +28,39 @@ function getMovieFromUser() {
   return movie;
 }
 
-function renderMovie(newMovie) {
-  const btnCssClass = newMovie.btnTag ? "tag-movie enable" : "tag-movie";
-  const textCssClass = newMovie.textMark ? "movie-text crossed-out-on" : "movie-text";
-  const liCssClass = newMovie.lable ? "movie-item lable-on" : "movie-item";
+function renderMovieList(newMovie) {
+  movieNode = newMovie;
+  movies.forEach((movieNode) => {
+    const btnCssClass = movieNode.btnTag ? "tag-movie enable" : "tag-movie";
+    const textCssClass = movieNode.textMark ? "movie-text crossed-out-on" : "movie-text";
+    const liCssClass = movieNode.lable ? "movie-item lable-on" : "movie-item";
 
-  const movieItem = document.createElement("li");
-  movieItem.id = newMovie.id;
-  movieItem.dataset.class = "movieItem";
-  movieItem.className = `${liCssClass}`;
-  movieItem.innerHTML = `<button data-class="tagMovie" class="${btnCssClass}"></button>
-                          <span data-class="movie" class="${textCssClass}">${newMovie.item}</span>
+    const movieItem = document.createElement("li");
+    movieItem.id = movieNode.id;
+    movieItem.dataset.class = "movieItem";
+    movieItem.className = `${liCssClass}`;
+    movieItem.innerHTML = `<button data-class="tagMovie" class="${btnCssClass}"></button>
+                          <span data-class="movie" class="${textCssClass}">${movieNode.item}</span>
                           <button data-class="resetMovie" class="reset-movie"></button>
                         `;
-  movieListNode.insertAdjacentElement("beforeend", movieItem);
+    movieListNode.insertAdjacentElement("beforeend", movieItem);
 
-  const tagMovieBtn = movieItem.querySelector("[data-class=tagMovie]");
-  const resetMovieBtn = movieItem.querySelector("[data-class=resetMovie]");
+    const tagMovieBtn = movieItem.querySelector("[data-class=tagMovie]");
+    const resetMovieBtn = movieItem.querySelector("[data-class=resetMovie]");
 
-  tagMovieBtn.addEventListener("click", tagMovie);
-  resetMovieBtn.addEventListener("click", resetMovie);
+    tagMovieBtn.addEventListener("click", tagMovie);
+    resetMovieBtn.addEventListener("click", resetMovie);
+  });
 }
 
-function renderMovieList() {
+const clearInput = (input) => {
+  input.value = "";
+  input.focus();
+};
+
+const addMovieHandler = (event) => {
+  event.preventDefault();
+
   const movie = getMovieFromUser();
 
   const newMovie = {
@@ -69,24 +79,7 @@ function renderMovieList() {
 
   saveToLocalStorage();
 
-  movieListNode.innerHTML = "";
-
-  movies.forEach((newMovie) => {
-    renderMovie(newMovie);
-  });
-}
-
-const clearInput = (input) => {
-  input.value = "";
-  input.focus();
-};
-
-const addMovieHandler = (event) => {
-  event.preventDefault();
-
-  getMovieFromUser();
-
-  renderMovieList();
+  renderMovieList(newMovie);
 
   clearInput(inputNode);
 };
