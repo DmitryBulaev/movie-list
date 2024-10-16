@@ -5,21 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Список фильмов</title>
 
-    <link
-      rel="shortcut icon"
-      href="resources/favicon.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="resources/favicon.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
   </head>
   <body>
     <section class="header-section">
@@ -32,20 +25,11 @@
     <section class="list-section">
       <form id="form">
         <div class="input-wrapper">
-          <input
-            id="movieInput"
-            type="text"
-            autocomplete="off"
-            placeholder="Добавить фильм"
-            class="list-section__input"
-          />
-          <button
-            id="addMovieButton"
-            class="list-section__add-movie-button"
-          ></button>
+          <input id="movieInput" type="text" autocomplete="off" placeholder="Добавить фильм" class="list-section__input" />
+          <button id="addMovieButton" class="list-section__add-movie-button"></button>
         </div>
       </form>
-      <ul id="moviesList" class="list-section__list"></ul>
+      <ul id="movieList" class="list-section__list"></ul>
     </section>
 
     <script src="script.js"></script>
